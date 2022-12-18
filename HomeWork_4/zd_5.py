@@ -55,8 +55,8 @@ k = len(res_dict_1)
 #     print(res_dict.values[i])
     
 for i in range(k, 0, -1):
-    res_dict(i)  = res_dict_1.get([i]) + res_dict_2([i])
-print(res_dict.keys())
+    # res_dict(i)  = res_dict_1.get([i]) + res_dict_2([i])
+# print(res_dict.keys())
 
 
 # '54x^4-22x^3+34x^2+5x+18=0'
