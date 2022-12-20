@@ -52,7 +52,7 @@ def take_candies_bot(player:str, candies:int):
             candies = candies - n_bot_candies
         if candies == 0:
             print("Бот победил")   
-            exit         
+            exit()         
     else:       
         while True:
             n_candies = int(input(f'Ваш ход, возьмите (от 1 до {max_candies}): '))
