@@ -1,42 +1,42 @@
 def inp_menu():
     inp_choice = input('''Чего изволите?
-# 1 добавление сотрудника
-# 2 посмотреть всех сотрудников
-# 3 найти сотрудника по фамилии
-# 4 найти по должности
-# 5 изменить зарплату
-# 6 общий фонд з/п
+# 1 добавление школьника
+# 2 посмотреть всех школьников
+# 3 найти школьника по фамилии
+# 4 найти по номеру школы
+# 5 изменить  класс
+
 # 0 выход
 
 ''')
     return inp_choice
 
 
-def add_worker():
-    print(f'''Введите данные добавляемого сотрудника через  
-    id name last_name position salary bonus''')
+def add_student():
+    print(f'''Введите данные добавляемого учащегося через  
+     name last_name школа класс литера''')
     inp_name = input("Введите имя: ").capitalize()
     inp_last_name = input("Введите фамилию: ").capitalize()
-    inp_position = input("Введите должность: ").capitalize()
-    inp_salary = int(input("Введите заработную плату: "))
-    inp_bonus = int(input("Введите премию: "))
-    return inp_name, inp_last_name, inp_position, inp_salary, inp_bonus
+    inp_shool = input("Введите школу: ").capitalize()
+    inp_klass = int(input("Введите класс: "))
+    inp_liter = (input("литер класса: "))
+    return inp_name, inp_last_name, inp_shool, inp_klass, inp_liter
 
 
-def find_worker():
-    worker = input('Введите фамилию сотрудника, которого хотите найти: ')
-    return worker
+def find_student():
+    student = input('Введите фамилию школьника, которого хотите найти: ')
+    return student
 
 
-def find_position():
-    position = input('Введите должность: ')
-    return position
+def find_shool():
+    shool = input('Введите школу: ')
+    return shool
 
 
-def change_salary():
-    id_worker = input('Введите id сотрудника, которого хотите найти: ')
-    new_salary = int(input('Введите новую заработную плату: '))
-    return id_worker, new_salary
+def change_klass():
+    id_klass = input('Введите id школьника, класс которого хотите изменить: ')
+    new_klass = int(input('Введите класс: '))
+    return id_klass, new_klass
 
 
 def print_data(inp_str):

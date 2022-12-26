@@ -7,29 +7,27 @@ def menu():
     while True:
         user_choice = inp_menu()
         if user_choice == '1':
-            add_w = add_worker()
-            data_add = insert_employer(add_w, con)
+            add_s = add_student()
+            data_add = insert_employer(add_s, con)
             print_data(data_add)
         elif user_choice == '2':
             p_all = print_all(con)
             print_data(p_all)
         elif user_choice == '3':
-            find_w = find_worker()
-            slm = select_last_name(con, find_w)
+            find_s = find_student()
+            slm = select_last_name(con, find_s)
             print_data(slm)
         elif user_choice == '4':
-            find_pos = find_position()
-            sel_pos = select_position(con, find_pos)
+            find_sl = find_shool()
+            sel_pos = select_klass(con, find_sl)
             print_data(sel_pos)
         elif user_choice == '5':
             p_all = print_all(con)
             print_data(p_all)
-            change_zp = change_salary()
-            ch_sal = change_sal(con, *change_zp)
-            print_data(ch_sal)
-        elif user_choice == '6':
-            d_zp = data_zp(con)
-            print_data(d_zp)
+            change_kl = change_klass()
+            ch_kl = change_klas(con, *change_kl)
+            print_data(ch_kl)
+      
         elif user_choice == '0':
             print('До свидания')
             break

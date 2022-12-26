@@ -2,15 +2,15 @@ import sqlite3
 
 
 def create_db():
-    con = sqlite3.connect('staff.db')
+    con = sqlite3.connect('pupils.db')
     cur = con.cursor()
     query = '''CREATE TABLE IF NOT EXISTS
-    staff(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    pupils(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     name TEXT,
     last_name TEXT,
-    position TEXT,
-    salary INTEGER,
-    bonus INTEGER);
+    sholl TEXT,
+    klass INTEGER,
+    liter TEXT);
     '''
     cur.execute(query)
     con.commit()
@@ -22,14 +22,14 @@ def insert_employer(new_data: tuple, con):
     print(con)
     cur = con.cursor()
     cur.execute(
-        'INSERT INTO staff (name, last_name, position, salary, bonus) VALUES(?,?,?,?,?)', new_data)
+        'INSERT INTO pupils (name, last_name, sholl, klass, liter) VALUES(?,?,?,?,?)', new_data)
     con.commit()
     return 'Данные добавлены'
 
 
 def print_all(con):
     cur = con.cursor()
-    res_all = cur.execute('SELECT * FROM staff;')
+    res_all = cur.execute('SELECT * FROM pupils;')
     res = res_all.fetchall()
     out_str = ''
     for i in res:
@@ -38,9 +38,9 @@ def print_all(con):
     return out_str
 
 
-def data_zp(con):
+def data_klass(con):
     cur = con.cursor()
-    res = cur.execute('SELECT salary, bonus FROM staff').fetchall()
+    res = cur.execute('SELECT klass, liter FROM pupils').fetchall()
     out_int = 0
     for i in res:
         out_int += sum(i)
@@ -50,7 +50,7 @@ def data_zp(con):
 def select_last_name(con, last_name):
     cur = con.cursor()
     res = cur.execute(
-        f'SELECT * FROM staff WHERE last_name LIKE "{last_name.capitalize()}%";').fetchall()
+        f'SELECT * FROM pupils WHERE last_name LIKE "{last_name.capitalize()}%";').fetchall()
     out_str = ''
     for i in res:
         out_str += ' '.join(map(str, i))
@@ -58,10 +58,10 @@ def select_last_name(con, last_name):
     return out_str
 
 
-def select_position(con, pos):
+def select_klass(con, klass):
     cur = con.cursor()
     res = cur.execute(
-        f'SELECT * FROM staff WHERE position LIKE "{pos.capitalize()}%";').fetchall()
+        f'SELECT * FROM pupils WHERE sholl LIKE "{klass.capitalize()}%";').fetchall()
     out_str = ''
     for i in res:
         out_str += ' '.join(map(str, i))
@@ -69,8 +69,8 @@ def select_position(con, pos):
     return out_str
 
 
-def change_sal(con, id_str, zp_str):
+def change_klas(con, id_str, zp_str):
     cur = con.cursor()
-    cur.execute(f"UPDATE staff SET salary = {zp_str} WHERE id = {id_str}")
+    cur.execute(f"UPDATE pupils SET klass = {zp_str} WHERE id = {id_str}")
     con.commit()
-    return f'Изменили заработную плату'
+    return f'Изменили номер класса'

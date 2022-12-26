@@ -7,7 +7,7 @@ def create_db():
     number_phone(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     name TEXT,
     last_name TEXT,    
-    phone INTEGER    
+    phone INTEGER)    
     '''
     cur.execute(query)
     con.commit()

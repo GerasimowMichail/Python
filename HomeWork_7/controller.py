@@ -38,3 +38,7 @@ def menu():
             break
         else:
             print('Вы что-то напутали с вводом')
+
+
+# with open('file.txt', 'w', encoding='utf-8') as file:
+# file.write(res_from_print_all)
